@@ -37,6 +37,9 @@
                             <a class="nav-link" href="/restaurants">Restaurants</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/add-restaurant">Add restaurant</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/find-restaurant">Find restaurant</a>
                         </li>
                     </ul>

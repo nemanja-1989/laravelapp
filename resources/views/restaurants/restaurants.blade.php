@@ -8,7 +8,7 @@
                 <div class="card-header">Restaurants</div>
 
                 <div class="card-body">
-                    <button type="button" class="btn btn-light btn-sm" id="button">Get All Restaurants</button>
+                    <button type="button" class="btn btn-light btn" id="button">Get All Restaurants</button>        
                     <div id="div"></div>
                 </div>
             </div>

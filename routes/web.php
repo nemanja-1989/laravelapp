@@ -41,6 +41,11 @@ Route::get("/find-restaurant", function() {
     return view("restaurants.find-restaurant");
 });
 
+Route::get("/add-restaurant", function() {
+
+    return view("restaurants.add-restaurant");
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

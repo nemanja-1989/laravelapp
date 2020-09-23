@@ -1,18 +1,21 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const button = document.getElementById("button").addEventListener("click", loadRestaurants);
+    
+    
+    function http() {
+        this.http = new XMLHttpRequest();
+    }
 
-    function loadRestaurants(e) {
-        
-        const xhr = new XMLHttpRequest();
+    //GET METHOD
+    http.prototype.get = function(url) {
+        // console.log(1);
+        this.http.open("GET", url, true);
 
-        xhr.open("GET", "http://127.0.0.1:8000/api/restaurants", true);
-
-        xhr.onload = function() {
-
-            if(this.status === 200) {
-                
+        let self = this;
+        this.http.onload = function() {
+            if(self.http.status === 200) {
+                // console.log(1);
                 let restaurants = JSON.parse(this.responseText);
-                console.log(restaurants);
+                // console.log(restaurants);
 
                 let output = "";
                 restaurants.data.forEach(function(value, key) {
@@ -33,12 +36,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
                 const div = document.querySelector("#div").innerHTML = output;
                 document.querySelector("#div").style.cssText = "margin-top: 50px;";
-                
             }
         }
+        this.http.send();
+    }
 
-        xhr.send();
-
+    document.querySelector("#button").addEventListener("click", loadRestaurants);
+    
+    function loadRestaurants(e) {
+        
+        const httpGET = new http();
+        
+        httpGET.get("http://127.0.0.1:8000/api/restaurants");
+        
         e.preventDefault();
     }
+    
 });
